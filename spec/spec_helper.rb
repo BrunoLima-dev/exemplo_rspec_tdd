@@ -18,22 +18,37 @@ require_relative '../helpers/helper'
 RSpec.configure do |config|
   # Roda antes de toda a suite de testes
   config.before(:suite) do
-    puts ">>>>>>> Rodando antes de toda a suite de testes >>>>>>>>>>>"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts ">>>>>>> Rodando antes de toda a suite de testes <<<<<<<<<<<<<"
+    puts ">>>>>>>>>> Essa parte esta em um helper <<<<<<<<<<<<<<<<<<<<<"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   end
 
   # Roda depois de toda a suite de testes
   config.after(:suite) do
-    puts "<<<<<<<< Rodando depois de toda a suite de testes <<<<<<<<<<"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts ">>>>>>>>> Rodando depois de toda a suite de testes <<<<<<<<<<"
+    puts ">>>>>>>>>> Essa parte esta em um helper <<<<<<<<<<<<<<<<<<<<"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts " "
   end
 
   # Roda antes de cada contexto
   config.before(:context) do
-    puts ">>>>>>> Roda antes de cada contexto >>>>>>>>>>>"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts ">>>>>>> Roda antes de cada contexto <<<<<<<<<<<<"
+    puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts " "
   end
 
   # Roda depois de cada contexto
   config.after(:all) do
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     puts "<<<<<<<< Roda depois de cada contexto <<<<<<<<<<"
+    puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts " "
   end
 
   # inclui o modulo Helper em todos os testes.
