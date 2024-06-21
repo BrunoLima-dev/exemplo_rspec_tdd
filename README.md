@@ -2,7 +2,7 @@
 
 ## Conceitos
 
-* **RSpec:** Framework de testes para Ruby que utiliza a metodologia BDD (Behavior Driven Development).
+* **RSpec:** Framework de teste para Ruby que utiliza a metodologia BDD (Behavior Driven Development).
 * **Capybara:** Driver de interface de usuário para RSpec que simula o comportamento de um navegador.
 
 ## RSpec
@@ -37,3 +37,19 @@
 * **Leitura (Read):** Teste a obtenção de um registro existente usando `get` e verificando a resposta.
 * **Atualização (Update):** Teste a atualização de um registro existente usando `put` e verificando a resposta.
 * **Exclusão (Delete):** Teste a exclusão de um registro existente usando `delete` e verificando a resposta.
+
+**Exemplo de teste usando RSpec e Capybara:**
+
+```
+require 'rails_helper'
+
+RSpec.describe "Creating a new task", type: :feature do
+  it "allows a user to create a new task" do
+    visit root_path
+    click_link "New Task"
+    fill_in "Title", with: "Buy milk"
+    click_button "Create Task"
+    expect(page).to have_content "Task was successfully created"
+  end
+end
+```
