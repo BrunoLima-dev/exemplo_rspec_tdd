@@ -26,22 +26,22 @@ RSpec.configure do |config|
   end
 
   # Roda antes de cada contexto
-  config.before(:context) do
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts ">>>>>>> Roda antes de cada contexto <<<<<<<<<<<<"
-    puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts " "
-  end
+  # config.before(:context) do
+  #   puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  #   puts ">>>>>>> Roda antes de cada contexto <<<<<<<<<<<<"
+  #   puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
+  #   puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  #   puts " "
+  # end
 
   # Roda depois de cada contexto
-  config.after(:all) do
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts "<<<<<<<< Roda depois de cada contexto <<<<<<<<<<"
-    puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts " "
-  end
+  # config.after(:all) do
+  #   puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  #   puts "<<<<<<<< Roda depois de cada contexto <<<<<<<<<<"
+  #   puts ">>>>>>> Essa parte esta em um helper <<<<<<<<<<<"
+  #   puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  #   puts " "
+  # end
 
   # inclui o modulo Helper em todos os testes.
   config.include Helper
