@@ -2,7 +2,7 @@
 --format documentation
 
 # filtro para testa somente os collection
---tag type:collection
+# --tag type:collection
 
 # Não vai rodar os teste que tem esta marcação slow
 # --tag ~slow
