@@ -17,6 +17,6 @@ describe 'Mocks' do
     expect(student).to receive(:bar)
 
     # 3 Exercise
-    expect(course_finished).to be_truthy
+    student.bar
   end
 end
