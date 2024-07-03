@@ -15,3 +15,5 @@ describe 'Test Doubles' do
     user.abc
   end
 end
+
+# Aqui finalizo os teste e agora vou para configuração de teste com Rspec on Rails
