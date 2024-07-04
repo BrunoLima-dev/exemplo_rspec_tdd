@@ -10,7 +10,68 @@
 * **Descreva o comportamento do sistema:** Use `describe` e `it` para descrever o comportamento esperado do sistema.
 * **Use expectativas:** Verifique se o comportamento real corresponde ao esperado usando `expect`.
 * **Agrupe testes:** Use `context` para agrupar testes relacionados.
+  
+## Adiciona configuração do RSpec
 
+### Adições
+* Gem rspec-rails:
+* Adicionei a gem rspec-rails, versão ~> 5.0.0 ao Gemfile e executei bundle install.
+
+### Criação do banco de dados de teste:
+* Após adicionar a gem, criei o banco de dados de teste executando:
+
+`rails db:create:all
+`
+
+### Instalação do RSpec:
+* Instalei o RSpec com:
+
+`rails g rspec:install
+`
+* Isso criou a pasta spec.
+
+### Gem spring-commands-rspec:
+* Adicionei a gem spring-commands-rspec ao Gemfile e rodei:
+
+`bundle exec spring binstub rspec
+`
+ou
+`bundle exec spring binstub --all
+`
+* Isso cria um binário dentro da pasta bin chamado rspec, melhorando a velocidade ao executar os comandos do RSpec.
+
+### Configuração dos generators no config/application.rb:
+* Adicionei a seguinte configuração para usar o RSpec como framework de teste e desabilitar a geração de testes para fixtures, views, helpers e routing:
+
+`config.generators do |g|
+  g.test_framework :rspec,
+    fixtures: false,
+    view_specs: false,
+    helper_specs: false,
+    controller_specs: true,
+    routing_specs: false
+end
+`
+
+### Gem capybara:
+* Adicionei a gem capybara ao Gemfile. Ela é necessária quando criamos testes automáticos usando o scaffold.
+
+`gem capybara`
+
+
+### Scaffolding
+* Scaffold Customer:
+* Gereei o scaffold para Customer com os atributos name (string) e email (string):
+
+`rails g scaffold Customer name:string email:string
+`
+* Depois rodei 
+`rails db:migrate
+`
+
+* E depois rodei o teste
+`bin/rails
+`
 ## Factory Girl e VCR
 
 * **Factory Girl:** Cria objetos de teste válidos com atributos predefinidos.
