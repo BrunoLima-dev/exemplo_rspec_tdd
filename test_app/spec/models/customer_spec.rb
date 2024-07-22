@@ -33,7 +33,7 @@ RSpec.describe Customer, type: :model do
     puts "attrs2 => #{attrs2}"
   end
 
-  it 'Atributo transitório' do
+  it 'Atributo attibutes for' do
     attrs = attributes_for(:customer)
     customer = Customer.new(attrs)
     expect(customer.full_name).to start_with('Sr. ')
