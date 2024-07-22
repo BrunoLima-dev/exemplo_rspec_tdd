@@ -23,4 +23,19 @@ RSpec.describe Customer, type: :model do
   end
 
   it { expect{ create(:customer) }.to change{Customer.all.size}.by(1) }
+
+  it 'Usando attibutes for' do
+    attrs = attributes_for(:customer) # recebe um hash com os atributos, bom para teste de api json
+    attrs1 = attributes_for(:customer_vip)
+    attrs2 = attributes_for(:customer_default)
+    puts "attrs => #{attrs}"
+    puts "attrs1 => #{attrs1}"
+    puts "attrs2 => #{attrs2}"
+  end
+
+  it 'Atributo transitório' do
+    attrs = attributes_for(:customer)
+    customer = Customer.new(attrs)
+    expect(customer.full_name).to start_with('Sr. ')
+  end
 end
