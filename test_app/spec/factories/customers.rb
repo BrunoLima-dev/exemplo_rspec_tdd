@@ -12,6 +12,24 @@ FactoryBot.define do
 
     sequence(:email) { |n| "meu_email-#{n}@email.com" }
 
+    trait :male do
+      gender { 'M' }
+    end
+
+    trait :female do
+      gender { 'F' }
+    end
+
+    trait :vip do
+      vip { true }
+      days_to_pay { 30 }
+    end
+
+    trait :default do
+      vip { false }
+      days_to_pay { 15 }
+    end
+
     factory :customer_vip do
       vip { true }
       days_to_pay { 30 }
@@ -30,7 +48,7 @@ FactoryBot.define do
 
     factory :customer_with_orders, traits: [:with_orders]
     factory :customer_male, traits: [:male]
-    factory :customer_female, traits: [:famele]
+    factory :customer_female, traits: [:female]
 
     after(:create) do |customer, evaluator|
       customer.name.upcase! if evaluator.upcased # Se upcased for true, name recebe o valor em maiúsculo
