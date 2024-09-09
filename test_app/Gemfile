@@ -46,6 +46,8 @@ group :development, :test do
   gem 'httparty'
   # webmock faz com que a aplicação não faça requisições reais para a API
   gem 'webmock'
+  # gem vcr grava as requisições feitas para a API e as reproduz em testes futuros
+  gem 'vcr'
 end
 
 group :development do
