@@ -42,7 +42,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
+  # HTTParty é uma biblioteca que permite fazer requisições HTTP de forma simples
   gem 'httparty'
+  # webmock faz com que a aplicação não faça requisições reais para a API
+  gem 'webmock'
 end
 
 group :development do
