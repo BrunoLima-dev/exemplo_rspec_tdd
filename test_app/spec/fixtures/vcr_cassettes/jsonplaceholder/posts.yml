@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://jsonplaceholder.typicode.com/posts/2
+    uri: "<API-URL>/posts/2"
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 09 Sep 2024 00:35:46 GMT
+      - Mon, 09 Sep 2024 11:08:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -59,11 +59,11 @@ http_interactions:
       Cf-Cache-Status:
       - HIT
       Age:
-      - '187'
+      - '1825'
       Server:
       - cloudflare
       Cf-Ray:
-      - 8c0319aa4a167a5c-GIG
+      - 8c06b82988fe7a15-GIG
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -75,5 +75,5 @@ http_interactions:
           "title": "qui est esse",
           "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
         }
-  recorded_at: Mon, 09 Sep 2024 00:35:46 GMT
+  recorded_at: Mon, 09 Sep 2024 11:08:15 GMT
 recorded_with: VCR 6.0.0
