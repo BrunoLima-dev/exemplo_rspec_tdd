@@ -1,3 +1,6 @@
+# Para rodar todos os teste em ordem aleatoria, utilize o comando bin/rspec --order random
+# Para fazer o mesmo teste que acabou de rodar na mesma ordem utilize o comando bin/rspec --seed 12345
+
 describe HTTParty do
   # >> O match_requests_on: [:body] é utilizado para comparar o corpo da requisição
   # it 'content-type', vcr: { cassette_name: 'jsonplaceholder/posts', match_requests_on: [:body]} do
