@@ -1,4 +1,5 @@
 # Webmock gem
+require 'vcr'
 require 'webmock/rspec'
 
 # Configura o VCR para gravar as requisições feitas para a API
