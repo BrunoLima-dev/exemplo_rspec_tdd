@@ -48,6 +48,8 @@ group :development, :test do
   gem 'webmock'
   # gem vcr grava as requisições feitas para a API e as reproduz em testes futuros
   gem 'vcr'
+  # gem shoulda-matchers é uma biblioteca que facilita a escrita de testes
+  gem 'shoulda-matchers'
 end
 
 group :development do
