@@ -51,6 +51,8 @@ group :development, :test do
   gem 'vcr'
   # gem shoulda-matchers é uma biblioteca que facilita a escrita de testes
   gem 'shoulda-matchers'
+  # gem rails-controller-testing é uma biblioteca que facilita a escrita de testes
+  gem 'rails-controller-testing'
 end
 
 group :development do
