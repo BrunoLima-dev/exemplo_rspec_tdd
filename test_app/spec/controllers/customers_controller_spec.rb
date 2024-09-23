@@ -27,23 +27,32 @@ RSpec.describe CustomersController, type: :controller do
 
   # Teste para verificar se o usuário logado consegue acessar a página
   describe 'as Logged Member' do
+    before do
+      @menber = create(:menber)
+      @customer = create(:customer)
+    end
+
+    context 'testando uma entrada' do
+      it 'with valid attributes' do
+        customer_params = attributes_for(:customer)
+        sign_in @menber
+        expect {
+          post :create, params: { customer: customer_params }
+        }.to change(Customer, :count).by(1)
+      end
+    end
+
     it 'response a 200 menber' do
-      menber = create(:menber)
-      customer = create(:customer)
+      sign_in @menber
 
-      sign_in menber
-
-      get :show, params: { id: customer.id }
+      get :show, params: { id: @customer.id }
       expect(response).to have_http_status(200)
     end
 
     it 'render a :show template' do
-      menber = create(:menber)
-      customer = create(:customer)
+      sign_in @menber
 
-      sign_in menber
-
-      get :show, params: { id: customer.id }
+      get :show, params: { id: @customer.id }
       expect(response).to render_template(:show)
     end
   end
