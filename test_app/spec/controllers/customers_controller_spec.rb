@@ -32,6 +32,14 @@ RSpec.describe CustomersController, type: :controller do
       @customer = create(:customer)
     end
 
+    # Teste da resposta do controller se é um json
+    it 'content-type JSON' do
+      customer_params = attributes_for(:customer)
+      sign_in @menber
+      post :create, format: :json, params: { customer: customer_params }
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+    end
+
     context 'Teste de flash notice' do
       it 'Flash Notice' do
         customer_params = attributes_for(:customer)
