@@ -55,7 +55,9 @@ group :development, :test do
   gem 'rails-controller-testing'
   # gem capybara é uma biblioteca que permite simular a navegação do usuário em um navegador
   gem 'capybara'
+  # gem selenium-webdriver permite simular a navegação do usuário em um navegador junto com a gem webdrivers
   gem 'selenium-webdriver'
+  # gem webdrivers permite simular a navegação do usuário em um navegador junto com a gem selenium-webdriver
   gem 'webdrivers'
 end
 

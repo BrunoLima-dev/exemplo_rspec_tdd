@@ -2,7 +2,7 @@
 require 'vcr'
 require 'webmock/rspec'
 require 'capybara/rspec'
-require 'capybara/rails'
+require 'selenium/webdriver'
 
 # Configura o VCR para gravar as requisições feitas para a API
 VCR.configure do |config|
@@ -10,7 +10,29 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.filter_sensitive_data('<API-URL>') { 'http://jsonplaceholder.typicode.com'}
+
+  config.ignore_request do |request|
+    # VCR ignore qualquer requisição cujo URI contenha "googlechromelabs".
+    request.uri =~ /googlechromelabs/
+    # VCR ignore localhost
+    config.ignore_localhost = true
+    # VCR ignore certas requisições quando nenhuma cassete está ativa
+    config.allow_http_connections_when_no_cassette = true
+  end
 end
+# Configura o Capybara para simular o navegador Chrome
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-gpu')
+  options.add_argument('--disable-dev-shm-usage') # Adicione esta linha
+  options.add_argument('--window-size=1366,720')
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium_chrome_headless
 
 RSpec.configure do |config|
   # Capybara
