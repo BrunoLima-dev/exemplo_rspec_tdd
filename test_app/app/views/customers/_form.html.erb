@@ -1,32 +1,112 @@
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
 
-      <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  #error_explanation {
+    padding: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  #error_explanation h2 {
+    margin: 0 0 10px;
+  }
+
+  #error_explanation ul {
+    padding-left: 20px;
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container .field {
+    margin-bottom: 15px;
+  }
+
+  .form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .form-container input[type="text"]:focus,
+  .form-container input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .form-container .actions {
+    text-align: center;
+  }
+
+  .form-container .actions input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-container .actions input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="form-container">
+  <%= form_with(model: customer, local: true) do |form| %>
+    <% if customer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+        <ul>
+          <% customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Enter your name" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, placeholder: "Enter your email" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, placeholder: "Enter your address" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save Customer" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
