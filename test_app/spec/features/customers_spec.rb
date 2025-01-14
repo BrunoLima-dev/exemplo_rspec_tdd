@@ -9,4 +9,19 @@ RSpec.feature "Customers", type: :feature, js: true do
     page.save_screenshot('screenshot.png')
     expect(page).to have_current_path(customers_path)
   end
+
+  it 'Create a Customer' do
+    menber = create(:menber)
+    login_as(menber, scope: :menber)
+
+    visit(new_customer_path)
+
+    fill_in('Name', with: Faker::Name.name)
+    fill_in('Email', with: Faker::Internet.email)
+    fill_in('Address', with: Faker::Address.street_address)
+
+    click_button('Save Customer')
+
+    expect(page).to have_content('Customer was successfully created.')
+  end
 end

@@ -1,14 +1,78 @@
-<p id="notice"><%= notice %></p>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
 
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
+  #notice {
+    padding: 10px;
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
+  .customer-info {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+  .customer-info strong {
+    color: #333;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .buttons a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .buttons a:hover {
+    background-color: #0056b3;
+  }
+
+  .buttons a:last-child {
+    background-color: #6c757d;
+  }
+
+  .buttons a:last-child:hover {
+    background-color: #5a6268;
+  }
+</style>
+
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="customer-info">
+  <p>
+    <strong>Name:</strong>
+    <%= @customer.name %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @customer.email %>
+  </p>
+  <p>
+    <strong>Endereço:</strong>
+    <%= @customer.address %>
+  </p>
+</div>
+
+<div class="buttons">
+  <%= link_to 'Edit', edit_customer_path(@customer), class: 'btn btn-primary' %>
+  <%= link_to 'Back', customers_path, class: 'btn btn-secondary' %>
+</div>
